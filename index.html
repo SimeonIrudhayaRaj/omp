@@ -170,9 +170,25 @@ BABYLON.FreeCameraMouseInput.prototype.attachControl = function (element, noPrev
 		new BABYLON.Vector3(0, -0.5, 0),
 		new BABYLON.Vector3(0, +0.5,0 )
 	];
-    var box = BABYLON.Mesh.CreateBox("box", 0.1, scene);
-box.position.z = 10;
-box.parent = camera
+    var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+
+var line = new BABYLON.GUI.Line();
+line.x1 = 400;
+line.y1 = 350;
+line.x2 = 400;
+line.y2 = 400;
+line.lineWidth = 2;
+line.color = "white";
+advancedTexture.addControl(line);    
+
+var line2 = new BABYLON.GUI.Line();
+line2.x1 = 375;
+line2.y1 = 375;
+line2.x2 = 425;
+line2.y2 = 375;
+line2.lineWidth = 2;
+line2.color = "white";
+advancedTexture.addControl(line2);  
                 };
 
 
