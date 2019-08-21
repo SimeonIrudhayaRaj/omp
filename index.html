@@ -43,33 +43,33 @@
     <script>
 var line1,line2,xc,yc,zc,camera;
 function cross(){
-    const cameraForwardRay = camera.getForwardRay(10);
-        const newPosition = camera.position.add(cameraForwardRay.direction.scale(cameraForwardRay.length));
-    var pos=newPosition
-    // var pos=camera.getFrontPosition();
-    xc=pos.x
-    yc=pos.y
-    zc=pos.zc+10
-    if(line1&line2)
-    {
-        console.log("dispose");
+    // const cameraForwardRay = camera.getForwardRay(10);
+    //     const newPosition = camera.position.add(cameraForwardRay.direction.scale(cameraForwardRay.length));
+    // var pos=newPosition
+    // // var pos=camera.getFrontPosition();
+    // xc=pos.x
+    // yc=pos.y
+    // zc=pos.zc-10
+    // if(line1&line2)
+    // {
+    //     console.log("dispose");
         
-        // line1.dispose()
-        // line2.dispose()
-    }    
-    var myPoints = [
-		new BABYLON.Vector3(xc+0.25, yc-0.5, zc),
-		new BABYLON.Vector3(xc+0.25, yc+0.5, zc)
-	];
-	console.log(pos);
+    //     // line1.dispose()
+    //     // line2.dispose()
+    // }    
+    // var myPoints = [
+	// 	new BABYLON.Vector3(xc+0.25, yc-0.5, zc),
+	// 	new BABYLON.Vector3(xc+0.25, yc+0.5, zc)
+	// ];
+	// console.log(pos);
     
-    line1 = BABYLON.MeshBuilder.CreateLines("line1", {points: myPoints}, scene);
-    myPoints = [
-		new BABYLON.Vector3(xc-0.5,yc+0.25, zc),
-		new BABYLON.Vector3(xc+0.5,yc+0.25, zc)
-	];
+    // line1 = BABYLON.MeshBuilder.CreateLines("line1", {points: myPoints}, scene);
+    // myPoints = [
+	// 	new BABYLON.Vector3(xc-0.5,yc+0.25, zc),
+	// 	new BABYLON.Vector3(xc+0.5,yc+0.25, zc)
+	// ];
 	
-    line2 = BABYLON.MeshBuilder.CreateLines("line2", {points: myPoints}, scene);
+    // line2 = BABYLON.MeshBuilder.CreateLines("line2", {points: myPoints}, scene);
  
 
 }
@@ -165,6 +165,14 @@ BABYLON.FreeCameraMouseInput.prototype.attachControl = function (element, noPrev
                     };
                     this._observer = this.camera.getScene().onPointerObservable.add(this._pointerInput, BABYLON.PointerEventTypes.POINTERDOWN | BABYLON.PointerEventTypes.POINTERUP | BABYLON.PointerEventTypes.POINTERMOVE);
                     element.addEventListener(BABYLON.Tools.GetPointerPrefix() +"move", this._onMouseMove, false);
+               
+                    var myPoints = [
+		new BABYLON.Vector3(0, -0.5, 0),
+		new BABYLON.Vector3(0, +0.5,0 )
+	];
+    var box = BABYLON.Mesh.CreateBox("box", 0.1, scene);
+box.position.z = 10;
+box.parent = camera
                 };
 
 
